@@ -1,55 +1,57 @@
-# langchain_gemini_chatbot
+# 🤖 AI Chatbot with Google Gemini & Tavily Search  
 
-### **Explanation of the Code**  
+This project is an AI-powered chatbot using **Google Gemini (Gemini Pro)** for conversational AI and **Tavily Search API** for real-time web search. The chatbot determines whether a query requires real-time data and intelligently selects between the Gemini AI model or Tavily search.  
 
-This script sets up a chatbot using **LangChain** and **Google Gemini AI (gemini-pro)**. Below is a breakdown of how it works:
+## ✨ Features  
+- **Conversational AI**: Uses Google Gemini (Gemini Pro) for natural language understanding.  
+- **Real-Time Search**: Integrates Tavily Search API for fetching live web data.  
+- **Smart Query Handling**: Determines whether to use AI-generated responses or real-time search results.  
+- **Fallback Mechanism**: If Gemini's response is vague, Tavily search is used as a backup.  
 
-1. **Import Necessary Modules**  
-   - `ChatGoogleGenerativeAI` (from `langchain_google_genai`) is used to interact with Google's **Gemini AI**.
-   - `StrOutputParser` (from `langchain_core.output_parsers`) converts the model’s output into a string format.
-   - `ChatPromptTemplate` (from `langchain_core.prompts`) is used to define how user input is structured before being sent to the AI model.
-   - `google.generativeai` is the official Google AI library for configuring and using **Gemini AI**.
+## 📌 Installation  
 
-2. **Set Up Google Gemini AI API Key**  
-   - The `GOOGLE_API_KEY` is needed to authenticate requests to Google's AI service.
-   - The script initializes `genai.configure(api_key=GOOGLE_API_KEY)` to set up the API key for communication with **Gemini AI**.
+1️⃣ **Clone the repository**  
+```bash
+git clone https://github.com/yourusername/ai-chatbot.git  
+cd ai-chatbot
+```  
 
-3. **Initialize the Language Model (LLM)**  
-   - The `ChatGoogleGenerativeAI` model is initialized with `"gemini-pro"` as the selected AI model.
-   - The API key is passed to ensure authentication.
+2️⃣ **Install dependencies**  
+```bash
+pip install -r requirements.txt  
+```  
 
-4. **Define the Chat Prompt**  
-   - A `ChatPromptTemplate` is created to format user input.
-   - It takes `{input}` as a placeholder for user messages.
+3️⃣ **Set up API keys**  
+Replace the placeholders in the code with your **Google Gemini API Key** and **Tavily API Key**.  
 
-5. **Create a Processing Chain**  
-   - The `chain` variable is created by connecting (`|` operator) the **prompt**, **LLM model**, and **output parser**.
-   - This ensures that user input is processed, passed to the AI model, and the response is formatted correctly.
+## 🚀 Usage  
+Run the chatbot in your terminal:  
+```bash
+python chatbot.py
+```  
+Then, type your queries:  
+- **General queries** → Answered by Google Gemini AI  
+- **Real-time queries** (e.g., news, stock prices) → Fetched using Tavily Search API  
 
-6. **Function to Handle Chat (`chat_with_bot`)**  
-   - This function takes user input, processes it through the `chain`, and returns the chatbot's response.
+To exit, type `quit`.  
 
-7. **Main Loop for Chat Interaction**  
-   - The script runs an interactive chat session.
-   - It continuously takes user input and provides responses from Gemini AI.
-   - If the user types `"quit"`, the script exits the chat.
+## 🏗️ Project Structure  
+```
+├── chatbot.py           # Main chatbot script
+├── requirements.txt     # Required Python packages
+└── README.md            # Project documentation
+```
+
+## 🔍 Example  
+```plaintext
+You: What's the latest news on AI?  
+Bot: 🔍 Here are the latest results from the web:  
+- "AI Breakthrough in 2025" - example.com/news1  
+- "How AI is Changing the World" - example.com/news2  
+```
+
+## 📜 License  
+MIT License  
 
 ---
-
-### **Dependencies to Install**  
-Before running this script, install the required dependencies using **pip**:
-
-```bash
-pip install langchain langchain-google-genai google-generativeai
-```
-
-If you face issues, also install:
-
-```bash
-pip install langchain-core
-```
-
-This will ensure you have all the necessary packages to run the chatbot.
-
-![image](https://github.com/user-attachments/assets/562b7041-98f4-4cf6-90dc-7fbc4b21c467)
-
+## OUTPUT
