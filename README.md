@@ -50,5 +50,3 @@ pip install langchain-core
 ```
 
 This will ensure you have all the necessary packages to run the chatbot.
-
-Let me know if you need further assistance! 🚀
